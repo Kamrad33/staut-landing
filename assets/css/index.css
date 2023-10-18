@@ -21,14 +21,22 @@ body {
 .wrapper-main {
     max-width: 1440px;
     position: relative;
-    padding: 0;
+    padding: 0 20px;
     margin: 0 auto;
+}
+
+.logo {
+
+}
+
+.logo_footer img {
+    filter: invert(99%) sepia(0%) saturate(3219%) hue-rotate(13deg) brightness(123%) contrast(99%);
 }
 
 /* HEADER */
 
 header {
-    padding: 50px 0;
+    padding: 50px 0px;
 }
 
 .header-content {
@@ -306,7 +314,68 @@ header {
     transform: rotate(180deg);
 }
 
+
 /* BUTTONS */
+
+/* FOOTER */
+footer {
+    background-color: #202020;
+    color: #FFFFFF;
+    padding-top: 70px;
+    padding-bottom: 120px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    gap: 8px;
+    height: 200px;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 15px;
+    justify-content: space-between;
+}
+
+.footer-links__nav {
+    height: 100%;
+}
+
+.footer-links__wrapper {
+    height: 100%;
+}
+
+.footer-link {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.footer-link:hover  {
+    text-shadow:0px 0px 2px #FFFFFF;
+    cursor: pointer;
+}
+
+.footer-social__title {
+    margin-bottom: 24px;
+    font-weight: 600;
+}
+
+.footer-phone {
+    text-align: right;
+}
+
+.footer-phone__title {
+    margin-bottom: 10px;
+}
+
+.footer-phone__number {
+    font-size: 20px;
+}
+/* FOOTER */
 
 @media (max-width: 768px) {
     .header-links {
@@ -331,5 +400,38 @@ header {
 
     .main-content__block__item {
         width: 100%;
+    }
+    
+    footer {
+        padding-top: 24px;
+        padding-bottom: 80px;
+    }
+
+    .footer-links__nav {
+        display: none;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+    }
+
+    .footer-links{
+        align-items: center;
+        margin-bottom: 24px;
+    }
+
+    .footer-social__title {
+        font-size: 20px;
+        font-weight: 400;
+    }
+
+    .logo_footer {
+        height: 28px;
+    }
+
+    .logo_footer img {
+        height: 100%;
     }
 }
