@@ -221,29 +221,42 @@
                 </div>
 
                 <!-- форма расчёта -->
-                <div>
-                    <div>backgroundImage</div>
-                    <h2>Получите расчет стоимости по вашим идеям</h2>
-                    <form>
-                        <div>
-                            <input />
-                            <input />
-                            <input />
+                <div class="calculator wrapper-main main-content__block main-content__block_vertical">
+                    <div class="calculator__wrapper">
+                        <div class="main-content__block__item main-content__block__item_double">
+                            <h2 class="title_h2 calculator__title">Получите расчет стоимости по вашим идеям</h2>
                         </div>
-                        <div>
-                            файлы
+                        <div class="main-content__block__item main-content__block__item_double">
+                            <form class="calculator-form">
+                                <div class="calculator-form__inputs">
+                                    <input
+                                        class="input"
+                                        placeholder="Ваше имя"
+                                    />
+                                    <input
+                                        class="input"
+                                        placeholder="Телефон или e-mail"
+                                    />
+                                    <textarea
+                                        class="textarea"
+                                        placeholder="Опишите суть работ"
+                                    ></textarea>
+                                </div>
+                                <div class="calculator-form__files">
+                                    файлы
+                                </div>
+                                <div>
+                                    <button class="button button_md button_black">Отправить</button>
+                                </div>
+                                <div class="calculator-form__rules">
+                                    Нажимая на кнопку отправить, вы соглашаетесь на <a href="#">обработку персональных данных</a>
+                                </div>
+                            </form>
                         </div>
-                        <div>
-                            <button>Отправить</button>
-                        </div>
-                        <div>
-                            Нажимая на кнопку отправить, вы соглашаетесь на <a href="#">обработку персональных данных</a>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
 
-            <!-- Отзывы -->
             <div class="reviews wrapper-main main-content__background main-content__block main-content__block_vertical">
                 <h2 class="title_h2">Отзывы</h2>
                 
@@ -259,14 +272,14 @@
                                 </div>
                                 <div class="review-slider__buttons">
                                     <button class="button button_circle button_circle_white">
-                                        <svg width="62" height="62" viewBox="0 0 62 62" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <svg viewBox="0 0 62 62" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M32 38L19 31L32 24" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
                                             <path d="M43 31H19" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
                                         </svg>
                                     </button>
                                     <div>1 из 7</div>
                                     <button class="button button_circle button_circle_reverse button_circle_white">
-                                        <svg width="62" height="62" viewBox="0 0 62 62" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <svg viewBox="0 0 62 62" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M32 38L19 31L32 24" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
                                             <path d="M43 31H19" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
                                         </svg>
