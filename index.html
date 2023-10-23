@@ -36,11 +36,11 @@
                         <img src="./assets/images/logo.svg" alt="STAUT"/>
                     </a>
                     <div class="header-links">
-                        <a class="header-link">Портфолио</a>
-                        <a class="header-link">О нас</a>
-                        <a class="header-link">Отзывы</a>
-                        <a class="header-link">Заказ</a>
-                        <a class="header-link">Контакты</a>
+                        <a class="header-link" href="#examples-title">Портфолио</a>
+                        <a class="header-link" href="#benefits-title">О нас</a>
+                        <a class="header-link" href="#reviews-title">Отзывы</a>
+                        <a class="header-link" href="#calculator-title">Заказ</a>
+                        <a class="header-link" href="#footer">Контакты</a>
                     </div>
                     <div class="phone">
                         <img src="./assets/images/phone.svg"/>
@@ -55,15 +55,30 @@
                 <div class="main-info main-content__background">
                     <div class="wrapper-main main-content__block">
                         <div class="main-content__block__item main-content__block__item_double">
-                            <div class="image-slider">
-                                <div>1 pic</div>
-                                <div>2 pic</div>
+                            <div id="main-image-slider" class="image-slider">
+                                <div class="image-slider__img" style="background-image: url('./assets/images/sliderBack_1.png');"></div>
+                                <div class="image-slider__img image-slider__img_front" style="background-image: url('./assets/images/sliderBack_1.png');">
+                                    <div class="image-slider__button"></div></div>
                             </div>
+                            <!-- <div id="main-image-slider" class="image-slider">
+                                <div class="image-slider__img">
+                                    <div class="image-slider__img__wrapper">
+                                        <img src="./assets/images/sliderBack_1.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="image-slider__img image-slider__img_front">
+                                    <div class="image-slider__img__wrapper">
+                                        <img src="./assets/images/sliderBack_1.png" alt="">
+                                    </div>
+                                    <div class="image-slider__button"></div></div>
+                            </div> -->
                         </div>
                         <div class="main-content__block__item main-content__block__item_double">
                             <h1 class="title_h1">Кухня по фото за 30 дней</h1>
                             <div class="title__description main-info__description">Кухня мечты - твоя реальность<br /> Заполни анкету, присылай любимые идеи и наши специалисты помогут с расчетом </div>
-                            <button class="button button_lg button_black">Расчитать стоимость</button>
+                            <a href="#calculator-title">
+                                <button class="button button_lg button_black">Расчитать стоимость</button>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -71,7 +86,7 @@
                 <div class="examples main-content__background main-content__background_black">
                     <div class="wrapper-main main-content__block main-content__block_vertical">
                         <div class="title-slider">
-                            <h2 class="title_h2">Мы реализовали</h2>
+                            <h2 id="examples-title" class="title_h2">Мы реализовали</h2>
                             <div class="title-slider__buttons">
                                 <button class="button button_circle button_black">
                                     <img src="./assets/images/circleBtn.svg" alt="">
@@ -88,9 +103,10 @@
                                 <div class="slider__content">
                                     <!-- элемент слайдера -->
                                     <div class="slider__item">
-                                        <div class="image-slider">
-                                            <div>1 pic</div>
-                                            <div>2 pic</div>
+                                        <div id="main-image-slider" class="image-slider">
+                                            <div class="image-slider__img" style="background-image: url('./assets/images/sliderBack_1.png');"></div>
+                                            <div class="image-slider__img image-slider__img_front" style="background-image: url('./assets/images/sliderBack_1.png');">
+                                                <div class="image-slider__button"></div></div>
                                         </div>
                                         <div class="slider__item__title">
                                             <div>Karther</div>
@@ -100,9 +116,10 @@
             
                                      <!-- элемент слайдера -->
                                      <div class="slider__item">
-                                        <div class="image-slider">
-                                            <div>1 pic</div>
-                                            <div>2 pic</div>
+                                        <div id="main-image-slider" class="image-slider">
+                                            <div class="image-slider__img" style="background-image: url('./assets/images/sliderBack_1.png');"></div>
+                                            <div class="image-slider__img image-slider__img_front" style="background-image: url('./assets/images/sliderBack_1.png');">
+                                                <div class="image-slider__button"></div></div>
                                         </div>
                                         <div class="slider__item__title">
                                             <div>Karther</div>
@@ -111,9 +128,10 @@
                                     </div>
                                      <!-- элемент слайдера -->
                                      <div class="slider__item">
-                                        <div class="image-slider">
-                                            <div>1 pic</div>
-                                            <div>2 pic</div>
+                                        <div id="main-image-slider" class="image-slider">
+                                            <div class="image-slider__img" style="background-image: url('./assets/images/sliderBack_1.png');"></div>
+                                            <div class="image-slider__img image-slider__img_front" style="background-image: url('./assets/images/sliderBack_1.png');">
+                                                <div class="image-slider__button"></div></div>
                                         </div>
                                         <div class="slider__item__title">
                                             <div>Karther</div>
@@ -122,9 +140,10 @@
                                     </div>
                                      <!-- элемент слайдера -->
                                      <div class="slider__item">
-                                        <div class="image-slider">
-                                            <div>1 pic</div>
-                                            <div>2 pic</div>
+                                        <div id="main-image-slider" class="image-slider">
+                                            <div class="image-slider__img" style="background-image: url('./assets/images/sliderBack_1.png');"></div>
+                                            <div class="image-slider__img image-slider__img_front" style="background-image: url('./assets/images/sliderBack_1.png');">
+                                                <div class="image-slider__button"></div></div>
                                         </div>
                                         <div class="slider__item__title">
                                             <div>Karther</div>
@@ -175,7 +194,7 @@
                 <!-- нас выбирают -->
                 <div class="benefits main-content__background">
                     <div class="wrapper-main main-content__background main-content__block main-content__block_vertical">
-                        <h2 class="title_h2">Почему нас выбирают</h2>
+                        <h2 id="benefits-title" class="title_h2">Почему нас выбирают</h2>
                         <div class="benefits__content">
                             <!-- контейнер 1 над 2 -->
                             <div class="main-content__block__item">
@@ -224,7 +243,7 @@
                 <div class="calculator wrapper-main main-content__block main-content__block_vertical">
                     <div class="calculator__wrapper">
                         <div class="main-content__block__item main-content__block__item_double">
-                            <h2 class="title_h2 calculator__title">Получите расчет стоимости по вашим идеям</h2>
+                            <h2 id="calculator-title" class="title_h2 calculator__title">Получите расчет стоимости по вашим идеям</h2>
                         </div>
                         <div class="main-content__block__item main-content__block__item_double">
                             <form class="calculator-form">
@@ -258,8 +277,7 @@
             </div>
 
             <div class="reviews wrapper-main main-content__background main-content__block main-content__block_vertical">
-                <h2 class="title_h2">Отзывы</h2>
-                
+                <h2 id="reviews-title" class="title_h2">Отзывы</h2>
                 <div>
                     <div class="review">
                         <div class="review__title">Светлана о кухне Shneiderhopf</div>
@@ -387,7 +405,7 @@
                 </div>
             </div>
 
-            <footer>
+            <footer id="footer">
                 <div class="wrapper-main footer-content">
                     <a  
                         href="/"
