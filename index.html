@@ -10,23 +10,26 @@
 </head>
 <body class="body-main noselect">
     <div class="body-main__wrapper">
-        <div>
+        <!-- <div> -->
             <!-- модалка -->
-            <!-- <div>
-                <div>X</div>
-                <div>
-                    <div>Ваша заявка успешно отправлена!</div>
-                    <div>В ближайшее время с ваши свяжется наш менеджер</div>
+            <div class="modal">
+                <div class="modal-content">
+                    <div class="modal-content__close-button"></div>
+                    <div class="modal-content__body">
+                        <div class="modal-content__body__title">Ваша заявка успешно отправлена!</div>
+                        <div class="modal-content__body__text">В ближайшее время с ваши свяжется наш менеджер</div>
+                    </div>
                 </div>
-            </div> -->
-
+            </div>
             <!-- popup -->
-            <!-- <div>
-                <div>X</div>
-                <div>
-                    <div>Скопировано в буфер обмена</div>
+            <div class="popup">
+                <div class="popup-content">
+                    <div class="popup-content__close-button"></div>
+                    <div class="popup-content__body">
+                        <div class="popup-content__body__text">Скопировано в буфер обмена</div>
+                    </div>
                 </div>
-            </div> -->
+            </div>
             <header>
                 <div class="wrapper-main header-content">
                     <a  
@@ -35,12 +38,17 @@
                     >
                         <img src="./assets/images/logo.svg" alt="STAUT"/>
                     </a>
-                    <div class="header-links">
+                    <div class="header-links__background"></div>
+                    <div class="header-links ">
                         <a class="header-link" href="#examples-title">Портфолио</a>
                         <a class="header-link" href="#benefits-title">О нас</a>
                         <a class="header-link" href="#reviews-title">Отзывы</a>
-                        <a class="header-link" href="#calculator-title">Заказ</a>
+                        <a class="header-link" href="#calculator">Заказ</a>
                         <a class="header-link" href="#footer">Контакты</a>
+                        <div class="header-links__phone">
+                            <div>Свяжитесь с нами</div>
+                            <div>+7 (495) 000 00 00</div>
+                        </div>
                     </div>
                     <div class="phone">
                         <img src="./assets/images/phone.svg"/>
@@ -94,7 +102,7 @@
                         <div class="main-content__block__item main-content__block__item_double">
                             <h1 class="title_h1">Кухня по фото за 30 дней</h1>
                             <div class="title__description main-info__description">Кухня мечты - твоя реальность<br /> Заполни анкету, присылай любимые идеи и наши специалисты помогут с расчетом </div>
-                            <a href="#calculator-title">
+                            <a href="#calculator">
                                 <button class="button button_lg button_black">Расчитать стоимость</button>
                             </a>
                         </div>
@@ -195,7 +203,9 @@
                             <div class="steps__item">
                                 <div class="steps__item__number">
                                     <div>01</div>
-                                    <button class="button button_lg button_black">Заполнить анкету</button>
+                                    <a class="button-a" href="#calculator">
+                                        <button class="button button_lg button_black">Заполнить анкету</button>
+                                    </a>
                                 </div>
                                 <div class="steps__item__title">
                                     Заполните анкету <br /> и прикрепите примеры желаемых работ
@@ -233,42 +243,56 @@
                         <h2 id="benefits-title" class="title_h2">Почему нас выбирают</h2>
                         <div class="benefits__content">
                             <!-- контейнер 1 над 2 -->
-                            <div class="main-content__block__item">
-                                <div class="benefits__item">
-                                    <div class="benefits__item__icon">
-                                        <div class="benefits__item__text">ЛДСП, МДФ, Шпон, Массив более 450 расцветок. Дизайнеры помогут выбрать и покажут примеры.</div>
-                                        <img src="./assets/images/notebook.png" alt="">
+                            <div class="benefits__block-wrapper">
+                                <div class="benefits__block">
+                                    <div class="benefits__item">
+                                        <div class="benefits__item__icon benefits__item__icon_right">
+                                            <div class="benefits__item__text">ЛДСП, МДФ, Шпон, Массив более 450 расцветок. Дизайнеры помогут выбрать и покажут примеры.</div>
+                                            <img src="./assets/images/notebook.png" alt="">
+                                        </div>
+                                        <h3 class="title_h3">Каталоги материалов<br />от 4 производителей</h3>
                                     </div>
-                                    <h3 class="title_h3">Каталоги материалов от 4 производителей</h3>
                                 </div>
-                                <div class="">
-                                    <div class="benefits__item">
-                                        <img src="./assets/images/coin.png" alt="">
-                                        <h3 class="title_h3">Работаем по предоплате</h3>
+                                <div class="benefits__block">
+                                    <div class="benefits__item benefits__item_double">
+                                        <div class="benefits__item__icon">
+                                            <img src="./assets/images/coin.png" alt="">
+                                            <h3 class="title_h3">Работаем по предоплате</h3>
+                                        </div>
                                     </div>
-                                    <div class="benefits__item">
-                                        <img src="./assets/images/hat.png" alt="">
-                                        <h3 class="title_h3">Изготавливаем под ваши размеры</h3>
+                                    <div class="benefits__item benefits__item_double">
+                                        <div class="benefits__item__icon">
+                                            <img src="./assets/images/hat.png" alt="">
+                                            <h3 class="title_h3">Изготавливаем под ваши размеры</h3>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
     
                             <!-- контейнер 2 над 1 -->
-                            <div class="main-content__block__item">
-                                <div>
-                                    <div>
-                                        <div>backgroundImage</div>
-                                        <h3>Гарантия 18 месяцев</h3>
+                            <div class="benefits__block-wrapper">
+                                <div class="benefits__block">
+                                    <div class="benefits__item benefits__item_double">
+                                        <div class="benefits__item__icon">
+                                            <img src="./assets/images/lock.png" alt="">
+                                            <h3 class="title_h3">Гарантия <br />18 месяцев</h3>
+                                        </div>
                                     </div>
-                                    <div>
-                                        <div>backgroundImage</div>
-                                        <h3>Выезд мастера бесплатно</h3>
+                                    <div class="benefits__item benefits__item_double">
+                                        <div class="benefits__item__icon">
+                                            <img src="./assets/images/man.png" alt="">
+                                            <h3 class="title_h3">Выезд мастера <br />бесплатно</h3>
+                                        </div>
                                     </div>
                                 </div>
-                                <div>
-                                    <div>backgroundImage</div>
-                                    <div>Материалы дешевле на 20 %, потому что мы не храним их на складе, а сразу везем к вам.</div>
-                                    <h3>Материалы с доставкой</h3>
+                                <div class="benefits__block">
+                                    <div class="benefits__item">
+                                        <div class="benefits__item__icon benefits__item__icon_right">
+                                            <div class="benefits__item__text">Материалы дешевле на 20 %, потому что мы не храним их на складе, а сразу везем к вам.</div>
+                                            <img id="heart-icon" src="./assets/images/heart.png" alt="">
+                                        </div>
+                                        <h3 class="title_h3">Материалы<br />с доставкой</h3>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -276,32 +300,59 @@
                 </div>
 
                 <!-- форма расчёта -->
-                <div class="calculator wrapper-main main-content__block main-content__block_vertical">
+                <div id="calculator" class="calculator wrapper-main main-content__block main-content__block_vertical">
                     <div class="calculator__wrapper">
-                        <div class="main-content__block__item main-content__block__item_double">
-                            <h2 id="calculator-title" class="title_h2 calculator__title">Получите расчет стоимости по вашим идеям</h2>
+                        <div class="calculator__title_outside main-content__block__item main-content__block__item_double">
+                            <h2 id="calculator-title-outside" class="title_h2 calculator__title">Получите расчет стоимости по вашим идеям</h2>
                         </div>
                         <div class="main-content__block__item main-content__block__item_double">
-                            <form class="calculator-form">
+                            <form id="calculator-form" class="calculator-form">
+                                <h2 id="calculator-title-inside" class="title_h2 calculator__title">Получите расчет стоимости по вашим идеям</h2>
                                 <div class="calculator-form__inputs">
                                     <input
+                                        id="calculator-input-name"
                                         class="input"
                                         placeholder="Ваше имя"
                                     />
                                     <input
+                                        id="calculator-input-phone"
                                         class="input"
                                         placeholder="Телефон или e-mail"
                                     />
                                     <textarea
+                                        id="calculator-input-comment"
                                         class="textarea"
                                         placeholder="Опишите суть работ"
                                     ></textarea>
                                 </div>
                                 <div class="calculator-form__files">
-                                    файлы
+                                    <label class="file-label" for="upload-files">Прикрепить файл</label>
+                                    <input
+                                        type="file"
+                                        id="upload-files"
+                                        multiple
+                                    />
+                                    <div class="calculator-form__files__items">
+                                        <div class="file-item">
+                                            <div>Файл</div>
+                                            <div class="file-item__close"></div>
+                                        </div>
+                                        <div class="file-item">
+                                            <div>Файл</div>
+                                            <div class="file-item__close"></div>
+                                        </div>
+                                        <div class="file-item">
+                                            <div>Файл</div>
+                                            <div class="file-item__close"></div>
+                                        </div>
+                                        <div class="file-item">
+                                            <div>Файл</div>
+                                            <div class="file-item__close"></div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div>
-                                    <button class="button button_md button_black">Отправить</button>
+                                    <button id="calculator-form-button" class="button button_md button_black button_full">Отправить</button>
                                 </div>
                                 <div class="calculator-form__rules">
                                     Нажимая на кнопку отправить, вы соглашаетесь на <a href="#">обработку персональных данных</a>
@@ -475,7 +526,7 @@
                     </div>
                 </div>
             </footer>
-        </div>
+        <!-- </div> -->
     </div>
 </body>
 </html>

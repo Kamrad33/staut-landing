@@ -1,3 +1,16 @@
+async function sendOrder(order) {
+    console.log(order);
+
+    // await axios.post('/sendOrder.php', order)
+    //     .then((res) => {
+    //         console.log('order', order);
+    //         console.log(res);
+    //     })
+    //     .catch((err) => {
+    //         console.warn(err)
+    //     })
+};
+
 const mainImageSlider = document.getElementById('main-image-slider');
 const bodyContaner = document.querySelector('body');
 const MAIN_WRAPPER_WIDTH = document.querySelector('.wrapper-main').offsetWidth;
@@ -158,5 +171,130 @@ anchors.forEach((elm) => {
     });
 });
 
+const order = {
+    userName: '',
+    userPhone: '',
+    userComment: '',
+};
 
+const headerMenuButton = document.getElementById('header-menu-button');
+const headerLinks = document.querySelectorAll('.header-link');
+const phoneText = document.querySelector('.phone');
+
+const calculatorForm = document.getElementById('calculator-form');
+const calculatorFormButton = document.getElementById('calculator-form-button');
+
+const calculatorInputName = document.getElementById('calculator-input-name');
+const calculatorInputPhone = document.getElementById('calculator-input-phone')
+const calculatorInputComment = document.getElementById('calculator-input-comment')
+
+const modal = document.querySelector('.modal');
+const modalCloseButton = modal.querySelector('.modal-content__close-button');
+
+const popup = document.querySelector('.popup');
+const popupCloseButton = popup.querySelector('.popup-content__close-button');
+
+headerMenuButton.addEventListener('click', () => {
+    if (document.body.classList.contains('header-links_opened')) {
+        document.body.classList.remove('header-links_opened');
+    } else {
+        document.body.classList.add('header-links_opened');
+    }
+});
+
+headerLinks.forEach((link) => {
+    link.addEventListener('click', () => {
+        document.body.classList.remove('header-links_opened');
+    });
+});
+
+phoneText.addEventListener('click', async () => {
+    const number = phoneText.querySelector('span');
+    console.log(number.innerText);
+    await navigator.clipboard.writeText(number.innerText);
+    popup.classList.add('popup_active');
+
+    setTimeout(() => {
+        popup.classList.remove('popup_active');
+    }, 4000)
+});
+
+modalCloseButton.addEventListener('click', () => {
+    closeModal(modal);
+})
+
+popupCloseButton.addEventListener('click', () => {
+    popup.classList.remove('popup_active');
+});
+
+calculatorFormButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    console.log('kek')
+    if (!modalError) {
+        openModal(modal);
+        sendOrder(order);
+    }
+})
+
+const openModal = (modal) => {
+    modal.classList.add('modal_active');
+    document.body.style.overflow = 'hidden'
+};
+
+const closeModal = (modal) => {
+    modal.classList.remove('modal_active');
+    document.body.removeAttribute("style");
+};
+
+const validateModalInput = (input) => {
+    if (!input.value) {
+        return "Заполните поле";
+    }
+
+    return null;
+};
+
+// Валидация модалки
+const validateModal = () => {
+
+    let errorName = null;
+    let errorPhone = validateModalInput(calculatorInputPhone);
+    let errorComment = null;
+
+    if (errorName || errorPhone || errorComment) {
+        return true;
+    }
+
+    return false;
+};
+
+let modalError = validateModal();
+
+calculatorInputName.addEventListener('input', (e) => {
+    order.userName = e.target.value;
+    modalError = validateModal();
+    disableButton(calculatorFormButton, modalError);
+});
+
+calculatorInputPhone.addEventListener('input', (e) => {
+    order.userPhone = e.target.value;
+    modalError = validateModal();
+    disableButton(calculatorFormButton, modalError);
+});
+
+calculatorInputComment.addEventListener('input', (e) => {
+    order.userComment= e.target.value;
+    modalError = validateModal();
+    disableButton(calculatorFormButton, modalError);
+});
+
+const disableButton = (button, error) => {
+    if (error || error === undefined) {
+        button.setAttribute('disabled', 'disabled');
+    } else {
+        button.removeAttribute('disabled');
+    }
+};
+
+disableButton(calculatorFormButton, modalError);
 
