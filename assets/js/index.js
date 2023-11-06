@@ -14,13 +14,8 @@ async function sendOrder(order) {
 const mainImageSlider = document.getElementById('main-image-slider');
 const bodyContaner = document.querySelector('body');
 const MAIN_WRAPPER_WIDTH = document.querySelector('.wrapper-main').offsetWidth;
-const imageSlidersArray = [
-    'main-image-slider',
-    // 'examples-image-slider-0',
-    // 'examples-image-slider-1',
-    // 'examples-image-slider-2',
-    // 'examples-image-slider-3',
-]
+const imageSlidersArray = ['main-image-slider'];
+
 // эвенты на слайдеры картинок
 // const imageSliderDraggableAddEvent = (slider) => {
 //     const button = slider.querySelector('.image-slider__button');
@@ -109,6 +104,7 @@ const imageSliderDraggableAddEvent = (slider) => {
     const image = slider.getElementsByClassName("image")[1];
     const buttonRange = slider.getElementsByClassName("slider-control")[0];
     slider.style.height = ((slider.offsetWidth * 3) / 4) + 'px';
+    // slider.style.width = ((slider.offsetHeight * 4) / 3) + 'px';
     // Move slider and buttonRange at change of value
     rangeSlider.addEventListener("input", (e) => {
         const sliderPos = e.target.value;
@@ -180,13 +176,16 @@ const order = {
 const headerMenuButton = document.getElementById('header-menu-button');
 const headerLinks = document.querySelectorAll('.header-link');
 const phoneText = document.querySelector('.phone');
+const phoneFooter = document.querySelector('.footer-phone__number');
 
 const calculatorForm = document.getElementById('calculator-form');
 const calculatorFormButton = document.getElementById('calculator-form-button');
 
 const calculatorInputName = document.getElementById('calculator-input-name');
-const calculatorInputPhone = document.getElementById('calculator-input-phone')
-const calculatorInputComment = document.getElementById('calculator-input-comment')
+const calculatorInputNameAlert = document.getElementById('calculator-input-name-alert');
+const calculatorInputPhone = document.getElementById('calculator-input-phone');
+const calculatorInputPhoneAlert = document.getElementById('calculator-input-phone-alert');
+const calculatorInputComment = document.getElementById('calculator-input-comment');
 
 const modal = document.querySelector('.modal');
 const modalCloseButton = modal.querySelector('.modal-content__close-button');
@@ -208,16 +207,21 @@ headerLinks.forEach((link) => {
     });
 });
 
-phoneText.addEventListener('click', async () => {
-    const number = phoneText.querySelector('span');
-    console.log(number.innerText);
-    await navigator.clipboard.writeText(number.innerText);
-    popup.classList.add('popup_active');
+const phoneCopyToBufferClick = (elm) => {
+    elm.addEventListener('click', async () => {
+        const number = elm.querySelector('span');
+        await navigator.clipboard.writeText(number.innerText);
+        popup.classList.add('popup_active');
+    
+        setTimeout(() => {
+            popup.classList.remove('popup_active');
+        }, 4000)
+    });
+    
+}
 
-    setTimeout(() => {
-        popup.classList.remove('popup_active');
-    }, 4000)
-});
+phoneCopyToBufferClick(phoneText);
+phoneCopyToBufferClick(phoneFooter);
 
 modalCloseButton.addEventListener('click', () => {
     closeModal(modal);
@@ -229,7 +233,7 @@ popupCloseButton.addEventListener('click', () => {
 
 calculatorFormButton.addEventListener('click', (e) => {
     e.preventDefault();
-    console.log('kek')
+
     if (!modalError) {
         openModal(modal);
         sendOrder(order);
@@ -246,9 +250,19 @@ const closeModal = (modal) => {
     document.body.removeAttribute("style");
 };
 
-const validateModalInput = (input) => {
+const validateModalInput = (input, type) => {
+    console.log(input.value);
     if (!input.value) {
         return "Заполните поле";
+    }
+
+    if (type === 'email') {
+        const validateEmailRegex = /^\S+@\S+\.\S+$/;
+        const validatePhoneRegex = /(?:\+|\d)[\d\-\(\) ]{9,}\d/g;
+        
+        if (!validateEmailRegex.test(input.value) && !validatePhoneRegex.test(input.value)) {
+            return "Введите корректный email";
+        }
     }
 
     return null;
@@ -256,10 +270,12 @@ const validateModalInput = (input) => {
 
 // Валидация модалки
 const validateModal = () => {
-
-    let errorName = null;
-    let errorPhone = validateModalInput(calculatorInputPhone);
+    let errorName = validateModalInput(calculatorInputName, 'text');;
+    let errorPhone = validateModalInput(calculatorInputPhone, 'email');
     let errorComment = null;
+
+    calculatorInputNameAlert.innerText = errorName;
+    calculatorInputPhoneAlert.innerText = errorPhone;
 
     if (errorName || errorPhone || errorComment) {
         return true;
@@ -297,4 +313,84 @@ const disableButton = (button, error) => {
 };
 
 disableButton(calculatorFormButton, modalError);
+
+const addLineSliderEvent = () => {
+    const examplesSliderButtonLeft = document.getElementById('examples-slider-button-left');
+    const examplesSliderButtonRight = document.getElementById('examples-slider-button-right');
+
+    const sliderLine = document.getElementById('examples-slider-line');
+    const sliderItem = document.querySelector('.slider__item');
+
+    let sliderNext = 0;
+    examplesSliderButtonRight.addEventListener('click', () => {
+        let offset = sliderItem.offsetWidth;
+
+        if (sliderNext > ((sliderLine.childElementCount - 2) * offset)) {sliderNext = -(offset)}
+        sliderNext += offset;
+        sliderLine.style.right = sliderNext + 'px';
+    });
+
+    examplesSliderButtonLeft.addEventListener('click', () => {
+        let offset = sliderItem.offsetWidth;
+
+        if (sliderNext <= 0) {sliderNext = ((sliderLine.childElementCount) * offset)}
+        sliderNext -= offset;
+        sliderLine.style.right = sliderNext + 'px';
+    });
+
+    let items = sliderLine.querySelectorAll('.slider__item');
+
+    items.forEach((item) => {
+        let imageSlider = item.querySelector('.slider__item__image');
+        imageSliderDraggableAddEvent(imageSlider);
+    });
+
+    imageSliderAddEvents(imageSlidersArray);
+};
+
+addLineSliderEvent();
+
+const addReviewSliderEvent = () => {
+    const examplesSliderButtonLeft = document.getElementById('review-slider-button-left');
+    const examplesSliderButtonRight = document.getElementById('review-slider-button-right');
+    let counter = document.querySelector('.review-slider__counter');
+
+    const sliderLine = document.getElementById('review-slider-line');
+    const sliderItem = document.querySelector('.review-slider__line__item');
+    console.log(sliderItem.style.width);
+
+    let sliderNext = 0;
+    let pageNumber = 1;
+    counter.innerText = `${pageNumber} из ${sliderLine.childElementCount}`;
+
+    examplesSliderButtonRight.addEventListener('click', () => {
+        let offset = sliderItem.offsetWidth;
+        pageNumber++;
+
+        if (sliderNext > ((sliderLine.childElementCount - 2) * offset)) {
+            sliderNext = -(offset);
+            pageNumber = 1
+        }
+
+        sliderNext += offset;
+        sliderLine.style.right = sliderNext + 'px';
+        counter.innerText = `${pageNumber} из ${sliderLine.childElementCount}` 
+    });
+
+    examplesSliderButtonLeft.addEventListener('click', () => {
+        let offset = sliderItem.offsetWidth;
+        pageNumber--;
+
+        if (sliderNext <= 0) {
+            sliderNext = ((sliderLine.childElementCount) * offset);
+            pageNumber = sliderLine.childElementCount;
+        }
+
+        sliderNext -= offset;
+        sliderLine.style.right = sliderNext + 'px';
+        counter.innerText = `${pageNumber} из ${sliderLine.childElementCount}`
+    });
+};
+
+addReviewSliderEvent();
 
