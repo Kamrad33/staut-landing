@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
-    <link href="/assets/fonts/Monsterrat/stylesheet.css" rel="stylesheet">
-    <link href="/assets/css/index.css" rel="stylesheet">
+    <link href="./assets/fonts/Monsterrat/stylesheet.css" rel="stylesheet">
+    <link href="./assets/css/index.css" rel="stylesheet">
     <title>Staut</title>
-    <script defer src="/assets/js/index.js" type="module"></script>
+    <script defer src="./assets/js/index.js" type="module"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"></script>
 </head>
 <body class="body-main noselect">
     <div class="body-main__wrapper">
@@ -425,7 +426,10 @@
                                     </div>
                                 </div>
                                 <div>
-                                    <button id="calculator-form-button" class="button button_md button_black button_full">Отправить</button>
+                                    <button
+                                        id="calculator-form-button"
+                                        class="button button_md button_black button_full"
+                                    >Отправить</button>
                                 </div>
                                 <div class="calculator-form__rules">
                                     Нажимая на кнопку отправить, вы соглашаетесь на <a href="#">обработку персональных данных</a>

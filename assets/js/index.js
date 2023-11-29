@@ -1,14 +1,16 @@
 async function sendOrder(order) {
-    console.log(order);
+    console.log('order', order);
 
-    // await axios.post('/sendOrder.php', order)
-    //     .then((res) => {
-    //         console.log('order', order);
-    //         console.log(res);
-    //     })
-    //     .catch((err) => {
-    //         console.warn(err)
-    //     })
+    await axios.post('/staut/sendOrder.php', order)
+        .then((res) => {
+            console.log('order', order);
+            console.log(res);
+        })
+        .catch((err) => {
+            console.warn(err)
+        });
+
+    console.log('AXIOS');
 };
 
 const mainImageSlider = document.getElementById('main-image-slider');
