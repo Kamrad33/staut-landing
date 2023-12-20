@@ -1,38 +1,17 @@
 async function sendOrder(order) {
-    console.log('order', order);
-
-    // await axios.post('/staut/sendOrder.php', order)
-    //     .then((res) => {
-    //         console.log('order', order);
-    //         console.log(res);
-    //     })
-    //     .catch((err) => {
-    //         console.warn(err)
-    //     });
     const formData = new FormData();
     let files = order.files;
+
     formData.append('userName', order.userName);
     formData.append('userPhone', order.userPhone)
     formData.append('userComment', order.userComment);
+
     for (let i = 0; i < files.length; i++) {
         formData.append("files[]", files[i]);
     }
-    console.log('formData.get', formData.get('files'));
-    // formData.append('files[]', order.files);
-
-    // await axios.post('/staut/sendTg.php', order)
-    //     .then((res) => {
-    //         console.log('order', order);
-    //         console.log(res);
-    //     })
-    //     .catch((err) => {
-    //         console.warn(err)
-    //     });
 
     await axios.post('/staut/sendTg.php', formData)
         .then((res) => {
-            console.log('order', order);
-            console.log(res);
         })
         .catch((err) => {
             console.warn(err)
@@ -45,17 +24,15 @@ const MAIN_WRAPPER_WIDTH = document.querySelector('.wrapper-main').offsetWidth;
 const imageSlidersArray = ['main-image-slider'];
 
 const imageSliderDraggableAddEvent = (slider) => {
-    // set vars
     const sliderParent = document.querySelector('.slider');
     const imageSliderContainer = slider.querySelector(".image-slider-container");
     const rangeSlider = slider.querySelector(".range-slider");
     const image = slider.getElementsByClassName("image")[1];
     const buttonRange = slider.getElementsByClassName("slider-control")[0];
 
-    console.log(sliderParent.offsetWidth );
     slider.style.width = sliderParent.offsetWidth + 'px';
     slider.style.height = ((slider.offsetWidth * 3) / 4) + 'px';
-    // slider.style.width = ((slider.offsetHeight * 4) / 3) + 'px';
+
     // Move slider and buttonRange at change of value
     rangeSlider.addEventListener("input", (e) => {
         const sliderPos = e.target.value;
@@ -83,7 +60,8 @@ const imageSliderDraggableAddEvent = (slider) => {
             { duration: 250, fill: "forwards" }
         );
     });
-}
+};
+
 const imageSliderAddEvents = (slidersArray) => {
     if (!slidersArray) {
         return;
@@ -97,8 +75,6 @@ const imageSliderAddEvents = (slidersArray) => {
 };
 
 imageSliderAddEvents(imageSlidersArray);
-// imageSliderDraggableAddEvent(mainImageSlider);
-
 // скролл якорей
 const anchors = document.querySelectorAll('a[href*="#"]');
 
@@ -112,9 +88,6 @@ anchors.forEach((elm) => {
             behavior: 'smooth',
             block: 'start'
         });
-
-        // clickHeaderMenu();
-        // document.body.classList.remove('header-menu_opened');
     });
 });
 
@@ -180,14 +153,14 @@ const phoneCopyToBufferClick = (elm) => {
         }, 4000)
     });
     
-}
+};
 
 phoneCopyToBufferClick(phoneText);
 phoneCopyToBufferClick(phoneFooter);
 
 modalCloseButton.addEventListener('click', () => {
     closeModal(modal);
-})
+});
 
 popupCloseButton.addEventListener('click', () => {
     popup.classList.remove('popup_active');
@@ -200,7 +173,7 @@ calculatorFormButton.addEventListener('click', (e) => {
         openModal(modal);
         sendOrder(order);
     }
-})
+});
 
 const openModal = (modal) => {
     modal.classList.add('modal_active');
@@ -329,14 +302,10 @@ const renderFiles = (files) => {
 
 calculatorInputFile.addEventListener('input', (e) => {
     const selectedFiles = e.target.files;
-    console.log(selectedFiles);
-
-    console.log('start', order.files);
 
     Object.values(selectedFiles).forEach((file) => {
         const exist = Object.values(fileList.files)
             .find((elm) => elm.name === file.name);
-        console.log('ESIST', exist);
 
         if (!exist) {
             fileList.items.add(file);
@@ -345,50 +314,10 @@ calculatorInputFile.addEventListener('input', (e) => {
 
     order.files = fileList.files;
 
-    console.log('end', order.files);
-
-
-
-    // if (!Object.keys(order.files).length) {
-    //     Object.values(selectedFiles).forEach((file) => {
-    //         fileList.items.add(file);
-    //     });
-
-    //     order.files = fileList.files;
-    //     console.log('yes', order.files);
-    // } else {
-    //     console.log('no', order.files);
-    //     Object.values(order.files).forEach((file) => {
-
-    //         const exist = Object.values(fileList.files)
-    //             .find((elm) => elm.name === file.name);
-    //         console.log('EXIST 1', exist, file);
-    //         // console.log('EXIST 1', Object.values(fileList.files).forEach((elm) => {console.log('elm.nameEEEEEEEEEEEEEE', elm.name);}));
-    //         if (!exist) {
-    //             fileList.items.add(file);
-    //         }
-    //     });
-    //     // console.log('RESULT1 ', fileList.files);
-
-    //     Object.values(selectedFiles).forEach((file) => {
-    //         console.log('cicle', fileList.files);
-    //         const exist = Object.values(fileList.files)
-    //             .find((elm) => {elm.name === file.name});
-    //         console.log('EXIST 2', exist);
-    //         if (!exist) {
-    //             fileList.items.add(file);
-
-    //             // console.log('RESULT 2', fileList.files);
-    //         }
-    //     });
-
-    //     order.files = fileList.files;
-    // }
-
     renderFiles(order.files);
 
     calculatorInputFile.value = null; // обнуление эвента
-})
+});
 
 const disableButton = (button, error) => {
     if (error || error === undefined) {
@@ -413,9 +342,6 @@ const addLineSliderEvent = () => {
     let sliderNext = 0;
     const gap = 20;
 
-    const sliderMain = document.querySelector('.slider');
-
-    // sliderMain.style.height = (sliderMain.offsetWidth * 3) / 4 + 'px';
 
     examplesSliderButtonRight.addEventListener('click', () => {
         let offset = sliderItem.offsetWidth;
