@@ -48,12 +48,14 @@
                         <a class="header-link" href="#footer">Контакты</a>
                         <div class="header-links__phone">
                             <div>Свяжитесь с нами</div>
-                            <div>+7 (495) 000 00 00</div>
+                            <div>
+                                <a href="tel:+74955326556">+7 (930) 033 03 50</a>
+                            </div>
                         </div>
                     </div>
                     <div class="phone">
                         <img src="./assets/images/phone.svg"/>
-                        <span>+7 (495) 000 00 00</span>
+                        <a href="tel:+74955326556">+7 (930) 033 03 50</a>
                     </div>
                     <div class="header__menu-button" id="header-menu-button">
                         <div></div>
@@ -127,7 +129,7 @@
                         <!-- тут загрузка с JSON элементов слйдер -->
                         <div class="examples__slider">
                             <div class="slider">
-                                <div class="slider__line" id="examples-slider-line">
+                                <div class="slider__line" id="examples-slider-line" style="right: 0px">
                                     <!-- элемент слайдера -->
                                     <div class="slider__item">
                                         <div class="slider__item__image">
@@ -265,6 +267,14 @@
                                 </div>
                             </div>
                         </div>
+                        <div class='title-slider__bottom-buttons'>
+                            <button class="button button_circle button_black" id="examples-slider-button-bottom-left">
+                                <img src="./assets/images/circleBtn.svg" alt="">
+                            </button>
+                            <button class="button button_circle button_circle_reverse button_black" id="examples-slider-button-bottom-right">
+                                <img src="./assets/images/circleBtn.svg" alt="">
+                            </button>
+                        </div>
                     </div>
                     <div class="steps">
                         <div class="wrapper-main main-content__block">
@@ -374,12 +384,13 @@
                             <h2 id="calculator-title-outside" class="title_h2 calculator__title">Получите расчет стоимости по вашим идеям</h2>
                         </div>
                         <div class="main-content__block__item main-content__block__item_double">
-                            <form id="calculator-form" class="calculator-form">
+                            <form id="calculator-form" class="calculator-form" method="post" enctype="multipart/form-data">
                                 <h2 id="calculator-title-inside" class="title_h2 calculator__title">Получите расчет стоимости по вашим идеям</h2>
                                 <div class="calculator-form__inputs">
                                     <div class="form-input">
                                         <input
                                             id="calculator-input-name"
+                                            name="userName"
                                             class="input"
                                             placeholder="Ваше имя*"
                                         />
@@ -388,6 +399,7 @@
                                     <div class="form-input">
                                         <input
                                             id="calculator-input-phone"
+                                            name="userPhone"
                                             class="input"
                                             placeholder="Телефон или e-mail*"
                                         />
@@ -395,6 +407,7 @@
                                     </div>
                                     <textarea
                                         id="calculator-input-comment"
+                                        name="userComment"
                                         class="textarea"
                                         placeholder="Опишите суть работ"
                                     ></textarea>
@@ -403,10 +416,11 @@
                                     <label class="file-label" for="upload-files">Прикрепить файл</label>
                                     <input
                                         type="file"
-                                        id="upload-files"
+                                        name="files[]"
                                         multiple
+                                        id="upload-files"
                                     />
-                                    <div class="calculator-form__files__items">
+                                    <div class="calculator-form__files__items" id="calculator-files">
                                         <div class="file-item">
                                             <div>Файл</div>
                                             <div class="file-item__close"></div>
@@ -612,17 +626,16 @@
                     <div class="footer-links__wrapper">
                         <div class="footer-social__title">Мы в социальных сетях</div>
                         <div class="footer-links">
-                            <a class="footer-link" href="#">Авито</a>
-                            <a class="footer-link" href="#">Телеграмм</a>
-                            <a class="footer-link" href="#">Одноклассники</a>
-                            <a class="footer-link" href="#">WhatsApp</a>
-                            <a class="footer-link" href="#">Вконтакте</a>
+                            <a class="footer-link" href="https://t.me/StautBot">Телеграмм</a>
+                            <a class="footer-link" href="https://ok.ru/group/70000004650801">Одноклассники</a>
+                            <a class="footer-link" href="whatsapp://send?phone=79300330350">WhatsApp</a>
+                            <a class="footer-link" href="https://vk.com/staut_shop">Вконтакте</a>
                         </div>
                     </div>
                     
                     <div class="footer-phone">
                         <div class="footer-phone__title">Свяжитель с нами:</div>
-                        <div class="footer-phone__number"><span>+7 (495) 000 00 00</span></div>
+                        <div class="footer-phone__number"><a href="tel:+74955326556"><span>+7 (930) 033 03 50<span></a></div>
                     </div>
                 </div>
             </footer>

@@ -11,6 +11,11 @@ body {
     color: #202020;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
 .noselect {
     -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
@@ -203,11 +208,16 @@ header {
     gap: 10px;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 
 .title-slider__buttons {
     display: flex;
     gap: 20px;
+}
+
+.title-slider__bottom-buttons {
+    display: none;
 }
 
 .slider {
@@ -225,6 +235,7 @@ header {
     height: 100%;
     width: 5000px;
     transition: 1s ease-in-out;
+    gap: 20px;
 }
 .slider__item {
     width: 728px;
@@ -232,7 +243,8 @@ header {
 }
 
 .slider__item__image {
-    height: calc(90% - 10px);
+    max-width: calc(100% - 40px);
+    max-height: calc(90% - 20px);
 }
 
 .slider__item__title {
@@ -569,18 +581,19 @@ header {
 .review-slider__line {
     display: flex;
     position: relative;
-    /* gap: 10px; */
     transition: 1s ease-in-out;
     height: 100%;
     right: 0;
+    gap: 20px;
 }
 
 .review-slider__line__item {
-    width: 350px;
+    /* width: 350px; */
 }
 
 .review-slider__line__item img{
-    height: 100%;
+    /* height: 100%; */
+    width: inherit;
 }
 
 /* SLIDER */
@@ -695,7 +708,7 @@ header {
 
 .image-slider-container .image {
     position: absolute;
-    width: calc(100% - 20px);
+    width: calc(100%);
     height: calc(100% - 40px);
     left: 0;
     top: 20px;
@@ -979,6 +992,7 @@ footer {
 .footer-phone__number {
     font-size: 20px;
     cursor: pointer;
+    color: #FFFFFF;
 }
 /* FOOTER */
 
@@ -1130,8 +1144,20 @@ footer {
 /* MODAL */
 
 @media (max-width: 768px) {
+    .title-slider__buttons {
+        display: none;
+    }
+
+    .title-slider__bottom-buttons {
+        display: flex;
+        gap: 20px;
+        bottom: 0;
+        right: 8px;
+        position: absolute;
+    }
+
     .wrapper-main {
-        padding: 0 20px;
+        padding: 0 8px;
     }
 
     header {
@@ -1189,6 +1215,7 @@ footer {
 
     .title_h1 {
         font-size: 44px;
+        margin-bottom: 20px;
     }
 
     .title_h2 {
@@ -1205,7 +1232,15 @@ footer {
 
     .main-content__block {
         flex-direction: column;
-        gap: 52px;
+        gap: 32px;
+    }
+
+    .main-info {
+        margin-bottom: 45px;
+    }
+
+    .main-info__description {
+        margin-bottom:  20px;
     }
 
     .main-content__block__item {
@@ -1283,6 +1318,8 @@ footer {
 
     .button_lg {
         font-size: 14px;
+        padding: 14px;
+        height: unset;
     }
 
     .button_full {

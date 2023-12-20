@@ -13,6 +13,7 @@
     $leadSender->AddPhone($req['userPhone']);
     $leadSender->SetComment($req['userComment']);
     $leadSender->SetTitle("Заказ обратного звонка от: {$req['userName']}");
+    // $leadSender->SetFile($req['files']);
 
     // $leadSender->SetName("NAME");
     // $leadSender->AddPhone("123123");

@@ -46,6 +46,17 @@ class B24Order
 		$this->queryData["fields"]["COMMENT"] = $msg;
 	}
 
+	// public function SetFiles($files)
+	// {
+	// 	var $arrFiles = [
+	// 		"fileData" => [
+	// 			$files['FILE']['name'],
+	// 			base64_encode(file_get_contents($_FILES['FILE']['tmp_name']))
+	// 		]
+	// 	];
+	// 	$this->queryData["fields"]["FILE"] = $arrFiles;
+	// }
+
 	public function Send()
 	{
 		$curl = curl_init();
