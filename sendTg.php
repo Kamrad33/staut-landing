@@ -3,7 +3,7 @@
 // Токен
   const TOKEN = ''; // заполняется на проде
  
-  // ID чата
+// ID чата
   const CHATID = ''; // заполняется на проде
  
   // Массив допустимых значений типа файла.
@@ -48,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           $urlFile =  "https://api.telegram.org/bot" . TOKEN . "/sendMediaGroup";
            
           // Путь загрузки файлов
-          $path = $_SERVER['DOCUMENT_ROOT'] . '/staut/tmp/';
+          $path = $_SERVER['DOCUMENT_ROOT'] . '/tmp/';
            
           // Загрузка файла и вывод сообщения
           $mediaData = [];
@@ -57,9 +57,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           ];
        
           for ($ct = 0; $ct < count($_FILES['files']['tmp_name']); $ct++) {
-            echo json_encode('FILESSSSS');
-            echo json_encode($_FILES['files']['tmp_name'][$ct]);
-            echo json_encode($path. $_FILES['files']['name'][$ct]);
+            // echo json_encode('FILESSSSS');
+            // echo json_encode($_FILES['files']['tmp_name'][$ct]);
+            // echo json_encode($path. $_FILES['files']['name'][$ct]);
             if ($_FILES['files']['name'][$ct] && @copy($_FILES['files']['tmp_name'][$ct], $path. $_FILES['files']['name'][$ct])) {
               if ($_FILES['files']['size'][$ct] < $size && in_array($_FILES['files']['type'][$ct], $types)) {
                 $filePath = $path . $_FILES['files']['name'][$ct];
@@ -83,18 +83,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if(is_file($file))
               unlink($file);
           }
-        //   echo json_encode($_FILES['files']['tmp_name']);
+          // echo json_encode($_FILES['files']['tmp_name']);
       } else {
-        echo json_encode('EMTY FILES');
+        // echo json_encode('EMTY FILES');
       }
-      echo json_encode('SUCCESS');
+      // echo json_encode('SUCCESS');
     } else {
-      echo json_encode('ERROR');
+      // echo json_encode('ERROR');
       // 
       // echo json_decode($textSendStatus);
     }
   } else {
-    echo json_encode('NOTVALID');
+    // echo json_encode('NOTVALID');
   }
 } else {
   header("Location: /");

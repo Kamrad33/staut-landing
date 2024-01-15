@@ -10,7 +10,7 @@ async function sendOrder(order) {
         formData.append("files[]", files[i]);
     }
 
-    await axios.post('/staut/sendTg.php', formData)
+    await axios.post('/sendTg.php', formData)
         .then((res) => {
         })
         .catch((err) => {

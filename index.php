@@ -5,9 +5,13 @@
     <meta name="viewport" content="width=device-width">
     <link href="./assets/fonts/Monsterrat/stylesheet.css" rel="stylesheet">
     <link href="./assets/css/index.css" rel="stylesheet">
-    <title>Staut</title>
+    <link rel="icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="24x24" href="./assets/favicons/favicon.png">
     <script defer src="./assets/js/index.js" type="module"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"></script>
+    <meta name="title" content="STAUT - изготовление мебели на заказ">
+    <meta name="description" content="Изготовление кoрпуcной мeбели на заказ в Москве, Московской области, Владимире и Владимирской области. Гapaнтия 18 меcяцев.">
+    <title>STAUT кухонная мебель на заказ</title>
 </head>
 <body class="body-main noselect">
     <div class="body-main__wrapper">
@@ -46,13 +50,13 @@
                     <div class="header-links__phone">
                         <div>Свяжитесь с нами</div>
                         <div>
-                            <a href="tel:+74955326556">+7 (930) 033 03 50</a>
+                            <a href="tel:+74955326556" itemprop="telephone">+7 (930) 033 03 50</a>
                         </div>
                     </div>
                 </div>
                 <div class="phone">
                     <img src="./assets/images/phone.svg"/>
-                    <a href="tel:+74955326556">+7 (930) 033 03 50</a>
+                    <a href="tel:+74955326556" itemprop="telephone">+7 (930) 033 03 50</a>
                 </div>
                 <div class="header__menu-button" id="header-menu-button">
                     <div></div>
@@ -577,7 +581,7 @@
                 
                 <div class="footer-phone">
                     <div class="footer-phone__title">Свяжитель с нами:</div>
-                    <div class="footer-phone__number"><a href="tel:+74955326556"><span>+7 (930) 033 03 50<span></a></div>
+                    <div class="footer-phone__number"><a href="tel:+74955326556" itemprop="telephone"><span>+7 (930) 033 03 50<span></a></div>
                 </div>
             </div>
         </footer>
